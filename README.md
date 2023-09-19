@@ -1,8 +1,24 @@
 # Funds Manager
 
-Fund Manager allow you to list and update funds, additionally a Event Emitter is triggered if If a new fund is created with a name and manager that matches the name or an alias of an existing fund with the same manager,
+Fund Manager allow you to list and update funds, additionally an Event Emitter is triggered if If a new fund is created with a name and manager that matches the name or an alias of an existing fund with the same manager,
 throw a duplicate_fund_warning event.
 
+Based on the nodejs architecture Event/Driven it was the perfect option for Subscribe/Publish to Event.
+
+## Scalability Consideration
+
+### What will happen if the data set grows increasingly larger?
+
+We will need to:
+
+1. Optimize query with only required Columns
+2. Add Indexes to the table 
+3. We will need to setup search enginelike ElasticSearc, to speed up queries.
+4. Scale infrastructure by creating replica 
+ 
+### How will the application work as the # of Concurrent users grows increasingly Larger?
+
+Besides the steps of the previous question, we will need to setup load balancer and cluster environment. `pm2` package or cluster module would be a great fit.
 
 ## ER Diagram
 

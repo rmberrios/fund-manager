@@ -57,12 +57,12 @@ describe('Fund Events', () => {
     const eventFound = await sequelize.models.event.findOne({
       where: {
         type: FUND_EVENTS.DUPLICATE_FUND_WARNING,
-        
+
       }
     });
 
     expect(eventFound?.dataValues.type).toBe(FUND_EVENTS.DUPLICATE_FUND_WARNING);
-    
+
 
   });
 });
