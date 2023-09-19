@@ -12,13 +12,13 @@ router.get("/", pageQueryMiddleware, async (req: Request, res: Response, next: N
 
   if (typeof req.query.fundManagerName === "string" && req.query.fundManagerName.length > 0) {
     where['$fundManager.name$'] = {
-      [Op.like]: `%${req.query.fundManagerName}%`
+      [Op.substring]: req.query.fundManagerName
     };
   }
 
   if (typeof req.query.name === "string" && req.query.name.length > 0) {
     where['name'] = {
-      [Op.like]: `%${req.query.fundManagerName}%`
+      [Op.substring]: req.query.name
     };
   }
 

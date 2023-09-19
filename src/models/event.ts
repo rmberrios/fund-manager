@@ -5,6 +5,10 @@ export enum eventStatus {
   FINISHED= "FINISHED",
 }
 
+export enum FUND_EVENTS {
+  DUPLICATE_FUND_WARNING = "DUPLICATE_FUND_WARNING"
+}
+
 export default function eventInit(sequelize: Sequelize) {
   sequelize.define('event', {
     id: {

@@ -2,10 +2,8 @@ import events from "events";
 import express, { Express, Request, Response } from 'express';
 import { getEventEmitter } from "./queue";
 import sequelize from "./db";
-import { eventStatus } from "../models/event";
-export enum FUND_EVENTS {
-  DUPLICATE_FUND_WARNING = "DUPLICATE_FUND_WARNING"
-}
+import { FUND_EVENTS, eventStatus } from "../models/event";
+
 
 export function registerFundEvents(app: Express) {
   const eventEmitter = getEventEmitter(app);
